@@ -1,0 +1,24 @@
+{
+  "name": "slack-channel-manager",
+  "version": "1.0.0",
+  "description": "Enterprise Slack workspace management tool for archiving inactive channels",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "setup": "node src/setup.js",
+    "test": "echo \"Tests will be added\" && exit 0"
+  },
+  "dependencies": {
+    "@slack/web-api": "^6.9.0",
+    "argparse": "^2.0.1",
+    "luxon": "^3.4.3",
+    "winston": "^3.11.0",
+    "dotenv": "^16.3.1",
+    "open": "^9.1.0",
+    "inquirer": "^9.2.12",
+    "chalk": "^5.3.0",
+    "ora": "^7.0.1"
+  }
+}

@@ -56,4 +56,17 @@ typings/
 
 # dotenv environment variables file
 .env
+.env.local
+.env.*.local
+
+# Slack Channel Manager sensitive files
+.slack-config/
+slack-channel-manager.log
+*.log
+
+# Keep docs/screenshots/ folder but ignore individual screenshot files initially
+# You can git add specific screenshots you want to include
+docs/screenshots/*.png
+docs/screenshots/*.jpg
+docs/screenshots/*.gif
 
