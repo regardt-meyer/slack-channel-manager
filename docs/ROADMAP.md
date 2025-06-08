@@ -9,6 +9,7 @@ The Slack Channel Manager is now a fully functional Enterprise Grid channel mana
 - **Enterprise Grid Support** - Multi-workspace management with organization-level installation
 - **Smart Channel Analysis** - Multi-timeframe activity detection (30d/60d/90d) with flexible rules  
 - **Guided Setup Wizard** - Interactive CLI setup with browser integration
+- **App Manifest Support** - Automated app creation with pre-configured settings
 - **Secure Configuration** - Local token storage with comprehensive security measures
 - **Rich Console Output** - Detailed decision logic and progress indicators
 - **Comprehensive Documentation** - Setup guides, security guidelines, and troubleshooting

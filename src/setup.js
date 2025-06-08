@@ -2,6 +2,7 @@ import inquirer from 'inquirer';
 import chalk from 'chalk';
 import ora from 'ora';
 import open from 'open';
+import path from 'path';
 import { ConfigManager } from './config.js';
 import { SlackAuth } from './auth.js';
 
@@ -116,6 +117,94 @@ class SetupWizard {
 
   async createNewApp() {
     console.log(chalk.cyan('\n📱 Creating new Slack app...'));
+    
+    const { method } = await inquirer.prompt([{
+      type: 'list',
+      name: 'method',
+      message: 'How would you like to create your Slack app?',
+      choices: [
+        { name: '🚀 Use app manifest (automated setup)', value: 'manifest' },
+        { name: '🛠️ Manual setup with guided instructions', value: 'manual' }
+      ]
+    }]);
+
+    if (method === 'manifest') {
+      await this.createAppWithManifest();
+    } else {
+      await this.createAppManually();
+    }
+  }
+
+  async createAppWithManifest() {
+    console.log(chalk.cyan('\n🚀 Creating app with manifest...'));
+    console.log(chalk.gray('This will create a properly configured Enterprise Grid app automatically.\n'));
+
+    const { proceed } = await inquirer.prompt([{
+      type: 'confirm',
+      name: 'proceed',
+      message: 'Open browser to create app with manifest?',
+      default: true
+    }]);
+
+    if (proceed) {
+      // Generate the manifest URL
+      const manifestPath = path.join(process.cwd(), 'slack-app-manifest.json');
+      const manifest = JSON.stringify({
+        "display_information": {
+            "name": "Slack Channel Manager"
+        },
+        "features": {
+            "bot_user": {
+                "display_name": "Slack Channel Manager",
+                "always_online": false
+            }
+        },
+        "oauth_config": {
+            "redirect_urls": [
+                "https://slack.com/oauth/callback"
+            ],
+            "scopes": {
+                "bot": [
+                    "channels:history",
+                    "channels:read",
+                    "channels:manage",
+                    "groups:read",
+                    "groups:write",
+                    "groups:history"
+                ]
+            }
+        },
+        "settings": {
+            "org_deploy_enabled": true,
+            "socket_mode_enabled": false,
+            "token_rotation_enabled": false
+        }
+      });
+
+      const manifestUrl = encodeURIComponent(manifest);
+      const createUrl = `https://api.slack.com/apps?new_app=1&manifest_json=${manifestUrl}`;
+      
+      await open(createUrl);
+      
+      console.log(chalk.yellow('\n📋 Automated Setup Instructions:'));
+      console.log('1. Review the pre-configured app settings');
+      console.log('2. Select your Enterprise Grid organization (NOT a workspace)');
+      console.log('3. Click "Create App"');
+      console.log('4. Go to "OAuth & Permissions" → Click "Install to Organization"');
+      console.log('5. Authorize for your entire Enterprise Grid organization');
+      console.log('6. Copy the "Bot User OAuth Token" (starts with xoxb-)');
+      console.log('7. Return here and paste the token\n');
+
+      await inquirer.prompt([{
+        type: 'input',
+        name: 'continue',
+        message: 'Press Enter when you have your bot token ready...'
+      }]);
+    }
+  }
+
+  async createAppManually() {
+    console.log(chalk.cyan('\n🛠️ Manual app creation...'));
     console.log(chalk.gray('I\'ll guide you through manual app creation for Enterprise Grid.\n'));
 
     const { proceed } = await inquirer.prompt([{

@@ -61,7 +61,19 @@ The setup wizard guides you through the entire process:
 npm run setup
 ```
 
-Choose "Create new app" for first-time setup. The wizard will:
+Choose "Create new app" for first-time setup. You'll have two options:
+
+#### 🚀 Option 1: App Manifest (Recommended)
+- **Fastest setup** - Uses pre-configured app manifest
+- **Automatic permissions** - All required scopes configured automatically
+- **One-click creation** - Just review and create the app
+
+#### 🛠️ Option 2: Manual Setup
+- **Step-by-step guidance** - Detailed instructions for each step
+- **Learning experience** - Understand how Enterprise Grid apps work
+- **Full control** - Customize settings as needed
+
+The wizard will:
 - Open your browser to create a Slack app
 - Provide step-by-step instructions for Enterprise Grid configuration
 - Handle authentication and workspace discovery
@@ -70,6 +82,16 @@ Choose "Create new app" for first-time setup. The wizard will:
 ### Manual Setup Guide
 
 For detailed manual setup instructions with screenshots, see: [docs/setup-guide.md](docs/setup-guide.md)
+
+### App Manifest
+
+If you prefer to create the app manually using the manifest, use [`slack-app-manifest.json`](slack-app-manifest.json):
+
+1. Go to [api.slack.com/apps](https://api.slack.com/apps)
+2. Click "Create New App" → "From an app manifest"
+3. Select your Enterprise Grid organization
+4. Paste the contents of `slack-app-manifest.json`
+5. Click "Create App"
 
 ## Usage
 
