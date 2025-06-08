@@ -11,7 +11,7 @@
     "test": "echo \"Tests will be added\" && exit 0"
   },
   "dependencies": {
-    "@slack/web-api": "^6.9.0",
+    "@slack/web-api": "^6.13.0",
     "argparse": "^2.0.1",
     "luxon": "^3.4.3",
     "winston": "^3.11.0",
