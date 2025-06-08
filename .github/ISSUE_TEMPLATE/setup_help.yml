@@ -1,0 +1,89 @@
+name: 🛠️ Setup Help
+description: Get help with Enterprise Grid setup or configuration
+title: "[Setup]: "
+labels: ["setup", "help-wanted"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Need help with setup? Please provide details about where you're stuck.
+
+  - type: checkboxes
+    id: resources
+    attributes:
+      label: Resources Checked
+      description: Please confirm you've checked these resources first
+      options:
+        - label: I've read the [README](https://github.com/regardt-meyer/slack-channel-manager/blob/master/README.md)
+        - label: I've checked the [Setup Guide](https://github.com/regardt-meyer/slack-channel-manager/blob/master/docs/setup-guide.md)
+        - label: I've looked at the [Troubleshooting section](https://github.com/regardt-meyer/slack-channel-manager/blob/master/README.md#troubleshooting)
+
+  - type: dropdown
+    id: step
+    attributes:
+      label: Setup Step
+      description: Which step are you having trouble with?
+      options:
+        - App Creation
+        - Bot Scopes Configuration
+        - OAuth & Redirect URLs
+        - Organization Distribution
+        - Organization Installation
+        - Token Configuration
+        - Workspace Discovery
+        - First Test Run
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: issue
+    attributes:
+      label: Issue Description
+      description: Describe what's happening and what you expected
+      placeholder: Explain the specific problem you're encountering
+    validations:
+      required: true
+
+  - type: textarea
+    id: error
+    attributes:
+      label: Error Messages
+      description: Any error messages you're seeing (remove sensitive info)
+      placeholder: Paste error messages here
+      render: shell
+
+  - type: dropdown
+    id: permissions
+    attributes:
+      label: Your Permissions
+      description: What are your permissions in the Slack organization?
+      options:
+        - Organization Admin
+        - Organization Owner
+        - Workspace Admin
+        - Regular User
+        - Not Sure
+    validations:
+      required: true
+
+  - type: input
+    id: workspaces
+    attributes:
+      label: Number of Workspaces
+      description: How many workspaces are in your Enterprise Grid?
+      placeholder: "e.g., 5, 10, 50+"
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Screenshots can be very helpful (remove any sensitive information)
+      placeholder: Drag and drop screenshots here
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other information that might help
+      placeholder: Organization setup, special requirements, etc.

@@ -1,0 +1,98 @@
+name: 🐛 Bug Report
+description: Report a bug or issue with the Slack Channel Manager
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please provide as much detail as possible.
+
+  - type: checkboxes
+    id: setup
+    attributes:
+      label: Setup Information
+      description: Please confirm your setup
+      options:
+        - label: I'm using Slack Enterprise Grid
+          required: true
+        - label: I've completed the setup wizard (`npm run setup`)
+          required: true
+        - label: I've tested with `--dry-run` mode first
+          required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: What version of the tool are you using?
+      placeholder: "e.g., 1.0.0 or commit hash"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      description: What environment are you running in?
+      options:
+        - macOS
+        - Linux
+        - Windows
+        - Docker
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is
+      placeholder: Describe what happened and what you expected to happen
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior
+      placeholder: |
+        1. Run command '...'
+        2. Select option '...'
+        3. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: command
+    attributes:
+      label: Command Used
+      description: The exact command that caused the issue
+      placeholder: "e.g., npm start -- --execute --max-members-inactive 5"
+    validations:
+      required: true
+
+  - type: textarea
+    id: output
+    attributes:
+      label: Console Output
+      description: Console output showing the error (remove any sensitive tokens)
+      placeholder: Paste console output here
+      render: shell
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log Files
+      description: Relevant entries from slack-channel-manager.log (remove any sensitive data)
+      placeholder: Paste relevant log entries here
+      render: json
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any additional context about the problem
+      placeholder: Add any other context, screenshots, or information here

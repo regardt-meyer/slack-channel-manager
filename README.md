@@ -35,7 +35,7 @@ Enterprise-grade Slack workspace management tool for automatically archiving ina
 
 1. **Clone and install:**
    ```bash
-   git clone https://github.com/YOUR-USERNAME/slack-channel-manager.git
+   git clone https://github.com/regardt-meyer/slack-channel-manager.git
    cd slack-channel-manager
    npm install
    ```
@@ -235,5 +235,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Support
 
 - 📖 [Setup Guide with Screenshots](docs/setup-guide.md)
-- 🐛 [Report Issues](https://github.com/YOUR-USERNAME/slack-channel-manager/issues)
-- 💡 [Feature Requests](https://github.com/YOUR-USERNAME/slack-channel-manager/issues)
+- 🗺️ [Roadmap](docs/ROADMAP.md)
+- 🐛 [Report Issues](https://github.com/regardt-meyer/slack-channel-manager/issues)
+- 💡 [Feature Requests](https://github.com/regardt-meyer/slack-channel-manager/issues)
